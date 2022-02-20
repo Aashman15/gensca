@@ -1,4 +1,4 @@
-<zxing-scanner [formats]="allowedFormats"></zxing-scanner>
+<zxing-scanner *ngIf="showScanner" [formats]="allowedFormats" (scanSuccess)="onScanSuccess($event)"></zxing-scanner>
 <div [hidden]="!value">
   <h4>Content</h4>
   <textarea class="form-control" [value]="value">

@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {BarcodeFormat} from "@zxing/library";
 import {ZXingScannerComponent} from "@zxing/ngx-scanner";
 
@@ -7,20 +7,11 @@ import {ZXingScannerComponent} from "@zxing/ngx-scanner";
   templateUrl: './scanner.component.html',
   styleUrls: ['./scanner.component.scss']
 })
-export class ScannerComponent implements OnInit {
+export class ScannerComponent {
   @ViewChild(ZXingScannerComponent) scanner = new ZXingScannerComponent();
 
-
-   value: String = '';
-
-  constructor() { }
-
-  ngOnInit(): void {
-    this.scanner.scanSuccess.subscribe(value => {
-      alert("scanned and the value is " + value);
-      this.scanner.scanStop();
-    });
-  }
+  value: String = '';
+  showScanner: boolean = true;
 
   allowedFormats = [
     BarcodeFormat.AZTEC,
@@ -42,8 +33,14 @@ export class ScannerComponent implements OnInit {
     BarcodeFormat.UPC_EAN_EXTENSION
   ];
 
-  scanAgain(){
+  onScanSuccess(result: string) {
+    this.value = result;
+    this.showScanner = false;
+  }
 
+  scanAgain() {
+    this.value = '';
+    this.showScanner = true;
   }
 
 }
