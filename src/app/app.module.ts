@@ -8,8 +8,6 @@ import { HeaderComponent } from './header/header.component';
 import { ScannerComponent } from './scanner/scanner.component';
 import { GeneratorComponent } from './generator/generator.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { BarcodeScannerComponent } from './scanner/barcode-scanner/barcode-scanner.component';
-import { QrCodeScannerComponent } from './scanner/qr-code-scanner/qr-code-scanner.component';
 import {BarcodeScannerLivestreamModule} from "ngx-barcode-scanner";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToastrModule} from "ngx-toastr";
@@ -22,8 +20,6 @@ import {ZXingScannerModule} from "@zxing/ngx-scanner";
     ScannerComponent,
     GeneratorComponent,
     PageNotFoundComponent,
-    BarcodeScannerComponent,
-    QrCodeScannerComponent
   ],
   imports: [
     BrowserModule,

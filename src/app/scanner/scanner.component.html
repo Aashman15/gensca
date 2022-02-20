@@ -1,16 +1,10 @@
-<div class="row mb-2">
-  <div class="col-6 d-flex justify-content-end" >
-    <span routerLink="barcode" [routerLinkActive]="'active'">
-      Barcode
-    </span>
-  </div>
-  <div class="col-6" >
-    <span routerLink="qrcode" [routerLinkActive]="'active'">
-    Qrcode
-      </span>
-  </div>
+<zxing-scanner [formats]="allowedFormats"></zxing-scanner>
+<div [hidden]="!value">
+  <h4>Content</h4>
+  <textarea class="form-control" [value]="value">
+  </textarea>
 </div>
-<router-outlet></router-outlet>
+<button [hidden]="!value" class="btn btn-success mt-2" (click)="scanAgain()">Scan Again</button>
 
 
 
