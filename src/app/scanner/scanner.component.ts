@@ -1,6 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
-import {BarcodeFormat} from "@zxing/library";
+import {BarcodeFormat, Exception} from "@zxing/library";
 import {ZXingScannerComponent} from "@zxing/ngx-scanner";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-scanner',
@@ -12,6 +13,9 @@ export class ScannerComponent {
 
   value: String = '';
   showScanner: boolean = true;
+
+  constructor(private toastr: ToastrService) {
+  }
 
   allowedFormats = [
     BarcodeFormat.AZTEC,
@@ -36,6 +40,7 @@ export class ScannerComponent {
   onScanSuccess(result: string) {
     this.value = result;
     this.showScanner = false;
+    this.toastr.success('Successfully scanned !!!');
   }
 
   scanAgain() {
