@@ -13,6 +13,7 @@ import { QrCodeScannerComponent } from './scanner/qr-code-scanner/qr-code-scanne
 import {BarcodeScannerLivestreamModule} from "ngx-barcode-scanner";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToastrModule} from "ngx-toastr";
+import {ZXingScannerModule} from "@zxing/ngx-scanner";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {ToastrModule} from "ngx-toastr";
     NgbModule,
     BarcodeScannerLivestreamModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ZXingScannerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
